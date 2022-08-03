@@ -1,5 +1,4 @@
 $("document").ready(function(){
-
     let btn_idx = 0;
     let comp_idx = 0;
     let pro_process = $(".pro-content-wrap>div");
@@ -59,14 +58,14 @@ $("document").ready(function(){
         scroll_chk = true;
     });
 
-    setInterval(function() {
-        if (scroll_chk) {
+    setInterval(function(){
+        if(scroll_chk){
             scroll_process();
             scroll_chk = false;
         }
-    }, 50);
+    },50);
 
-    function scroll_process() {           
+    function scroll_process(){           
         $(pro_process).eq(0).addClass(pro_ani_type).css("opacity", 1).css("transition-delay",pro_ani_transDly).css("animation-delay","300ms");
         $(pro_process).eq(1).addClass(pro_ani_type).css("opacity", 1).css("transition-delay",pro_ani_transDly).css("animation-delay","1000ms");
         $(pro_process).eq(2).addClass(pro_ani_type).css("opacity", 1).css("transition-delay",pro_ani_transDly).css("animation-delay","1300ms");
@@ -152,42 +151,5 @@ $("document").ready(function(){
         comp_idx = $(this).index();
         com_img.style.backgroundImage = "url("+img_root+(comp_idx+1)+".png)";
     })
-
-
-    var getUrlParameter = function getUrlParameter(sParam) {
-        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-            sURLVariables = sPageURL.split('&'),
-            sParameterName,
-            i;
-        for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : sParameterName[1];
-            }
-        }
-    };
-
-    console.log(getUrlParameter("sub"))
-
-    if (getUrlParameter("sub") != undefined) {
-        $("."+getUrlParameter("sub")).trigger("click");
-
-
-        
-        $("html, body").stop().animate({
-            scrollTop: $(".con div").offset().top
-        })
-    }
        
-    if (getUrlParameter("sub") != undefined) {
-        $("."+getUrlParameter("sub")).trigger("click");
-        setTimeout(function(){
-            $("html, body").stop().animate({
-                scrollTop: $(".con").eq(getUrlParameter("sub").slice(7,9)-1).find("div").offset().top
-            })
-        },100)
-    }
-
-
-
 })
