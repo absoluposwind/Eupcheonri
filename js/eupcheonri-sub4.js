@@ -13,7 +13,7 @@ $("document").ready(function(){
     let m4_height = "2165px";
 
     const com_img = document.querySelector(".comp-big");
-    const img_root = "/images/eupcheonri/big" 
+    const img_root = "../images/eupcheonri/big" 
 
     $(".pro-content-wrap>*").css("opacity","0");
     $(".btn ul li").eq(0).css("background-color","#f6d76a");
